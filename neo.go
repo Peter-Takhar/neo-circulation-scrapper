@@ -91,13 +91,13 @@ func main() {
 		}
 
 		circSupplyAmount := MAXSUPPLY - accountBalanceNEO
-		fmt.Printf("Circrulating Supply Amount: %f.\n\n", circSupplyAmount)
+		fmt.Printf("Circrulating Supply Amount: %d.\n\n", int64(circSupplyAmount))
 
 		if previousAmount < circSupplyAmount {
 			fmt.Println("Updated amount.")
 			previousAmount = circSupplyAmount
 		} else {
-			fmt.Println("The previous amount is the same as the scraped data.")
+			fmt.Println("The previous amount is the same as the scraped data.\n")
 		}
 		time.Sleep(10 * time.Second)
 	}
@@ -109,9 +109,9 @@ with a fully synchonized node
 */
 func isBlockchainSynchronized(otherNode string) bool {
 
-	otherNodeHeight := getClientBlockHeight(otherNode)
-	myHeight := getClientBlockHeight(clientNode)
-	fmt.Printf("Current node block height: %f. Other node block height: %f.\n",
+	otherNodeHeight := int64(getClientBlockHeight(otherNode))
+	myHeight := int64(getClientBlockHeight(clientNode))
+	fmt.Printf("Current node block height: %d. Remote node block height: %d.\n",
 		myHeight, otherNodeHeight)
 	return myHeight >= otherNodeHeight
 }
