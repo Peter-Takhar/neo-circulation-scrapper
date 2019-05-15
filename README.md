@@ -1,4 +1,4 @@
-# NEO Total Circulation Scrapper
+# NEO Total Circulation Scraper
 
 This repository contains a simple way to start a NEO node and to obtain the total circulating supply of NEO.
 
